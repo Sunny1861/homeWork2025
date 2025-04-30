@@ -15,8 +15,9 @@ test.describe('authorize page test', async () => {
     await authorizeP.emailAddress.fill("user-564f2e71-fba7-4364-874d-dd4a543d8271@mailslurp.biz");
     await authorizeP.continuewithEmail.click();
 
-    // Wait 3 seconds to sure the mail server received the verify code mail
-    await delay(1000 * 3);
+    // Wait 8 seconds to sure the mail server received the verify code mail
+    // TODO: Improve the wait logical here to sure input verify code once mail received it
+    await delay(1000 * 8);
     const verifyCode = await getVerificationCode();
     const inputs = await authorizeP.verifyCodeInput;
 

@@ -10,3 +10,6 @@
 - run npm install in the root of above code
 - npx playwright test --project chrome --headed
 - You can see the run report after run finish, run npx playwright show-report
+
+In above cmdline, --project=chrome means run chrome project(config in playwright.config.ts), --deaded means run with UI, by default it run in headless
+For more cool and power feature, you can read playwright offical site https://playwright.dev/
