@@ -6,7 +6,9 @@ const mailslurp = new MailSlurp({ apiKey });
 
 export async function getVerificationCode(): Promise<string> {
     const inboxIDs = await mailslurp.inboxController.getInboxIds();
+    console.log("inboxIDs: " + inboxIDs)
     const inboxId = inboxIDs.inboxIds[0].id;
+    console.log("inboxId: " + inboxId)
 
     // wait for verification code
     const email = await mailslurp.waitForLatestEmail(inboxId)
