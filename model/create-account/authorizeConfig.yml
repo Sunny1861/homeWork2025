@@ -1,0 +1,26 @@
+
+continuewithGoogle: 'css:button:has-text("Continue with Google")'
+
+continuewithGitHub: 'css:button:has-text("Continue with GitHub")'
+gitHubUserNameOrEmailAddress: 'css:#login_field'
+gitHubPassword: 'css:#password'
+gitHubsignIn: 'css:input[value="Sign in"]'
+gitHubVerificationCodeInput: 'css:#otp'
+gitHubVerify: 'css:button[type="submit"]'
+
+
+continuewithEmail: 'css:button:has-text("Continue with Email")'
+emailAddress: 'css:#email'
+verifyCodeInput: 'css:.flex.w-full.flex-col>.flex.flex-row>input'
+
+continueWithEnterpriseSSO: 'css:button:has-text("Continue with Enterprise SSO")'
+
+dashboardLink: 'css:ul.flex>li:first-child>a'
+
+
+continueWithEnterpriseSSOByText: 'text:Continue with Enterprise SSO'
+
+
+customerTestId: 'testId:directions'
+
+

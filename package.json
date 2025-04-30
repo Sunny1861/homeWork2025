@@ -1,0 +1,22 @@
+{
+  "name": "insomnia-tests",
+  "version": "1.0.0",
+  "description": " simple playwright test for interview",
+  "scripts": {
+    "author": "sunmeixia2005@163.com",
+    "license": "TBD",
+    "test": "npx playwright test",
+    "report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/js-yaml": "^4.0.9"
+  },
+  "dependencies": {
+    "@types/node": "^22.15.3",
+    "imap": "^0.8.19",
+    "js-yaml": "^4.1.0",
+    "mailslurp-client": "^15.21.0",
+    "typescript": "^5.8.3"
+  }
+}
