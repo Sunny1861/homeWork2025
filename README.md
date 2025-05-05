@@ -1,10 +1,8 @@
-# Insomnia create account test
+# Purpose
 - Demo test project for interview
 
 ## Prepare
--  Make sure you already installed chome in default path C:/Program Files/Google/Chrome/Application/chrome.exe
-or update 'executablePath' value to your local chome execute file path in the playwright.config.ts
--  Install Nodejs, version should >=22
+-  Install Nodejs
 
 ## How to run it locally
 - clone the code into your local, `git clone https://github.com/Sunny1861/homeWork2025.git`
