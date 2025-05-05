@@ -1,7 +1,7 @@
 
-continuewithGoogle: 'css:button:has-text("Continue with Google")'
+continuewithGoogle: 'css:button:has-text("GGGGGG|authorize.ContinuewithGoogle|GGGGGG")'
 
-continuewithGitHub: 'css:button:has-text("Continue with GitHub")'
+continuewithGitHub: 'css:button:has-text("GGGGGG|authorize.ContinuewithGitHub|GGGGGG")'
 gitHubUserNameOrEmailAddress: 'css:#login_field'
 gitHubPassword: 'css:#password'
 gitHubsignIn: 'css:input[value="Sign in"]'
@@ -9,16 +9,16 @@ gitHubVerificationCodeInput: 'css:#otp'
 gitHubVerify: 'css:button[type="submit"]'
 
 
-continuewithEmail: 'css:button:has-text("Continue with Email")'
+continuewithEmail: 'css:button:has-text("GGGGGG|authorize.ContinuewithEmail|GGGGGG")'
 emailAddress: 'css:#email'
 verifyCodeInput: 'css:.flex.w-full.flex-col>.flex.flex-row>input'
 
-continueWithEnterpriseSSO: 'css:button:has-text("Continue with Enterprise SSO")'
+continueWithEnterpriseSSO: 'css:button:has-text("GGGGGG|authorize.ContinuewithEnterpriseSSO|GGGGGG")'
 
 dashboardLink: 'css:ul.flex>li:first-child>a'
 
 
-continueWithEnterpriseSSOByText: 'text:Continue with Enterprise SSO'
+continueWithEnterpriseSSOByText: 'text:GGGGGG|authorize.ContinuewithEnterpriseSSO|GGGGGG'
 
 
 customerTestId: 'testId:directions'

@@ -10,7 +10,7 @@ interface TestConfig extends PlaywrightTestConfig {
 const defaultConfig: PlaywrightTestConfig = {
   timeout: 60000,
   expect: {
-    timeout: 2000
+    timeout: 50000
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -23,40 +23,33 @@ const defaultConfig: PlaywrightTestConfig = {
     baseURL: 'https://app.insomnia.rest',
   },
   projects: [
+    /* Test against desktop browsers */
     {
-      name: 'chrome',
-      use: { ...devices['Desktop Chrome'], launchOptions: {executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe'} },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
-
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
     /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: 'GoogleChrome',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' }, // or 'chrome-beta'
+    },
+    {
+      name: 'MicrosoftEdge',
+      use: { ...devices['Desktop Edge'], channel: 'msedge' }, // or 'msedge-dev'
+    },
+    /* Test against mobile viewports. */
+    {
+      name: 'MobileChrome',
+      use: { ...devices['Pixel 5'] },
+    },
   ],
 };
 

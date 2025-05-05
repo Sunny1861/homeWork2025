@@ -1,0 +1,14 @@
+{
+    "Dashboard": {
+      "Dashboard": "Dashboard",
+      "AIRunners": "AI Runners"
+    },
+    "authorize": {
+      "WelcometoInsomnia": "Welcome to Insomnia",
+      "ContinuewithEmail": "Continue with Email",
+      "ContinuewithGoogle":"Continue with Google",
+      "ContinuewithGitHub": "Continue with GitHub",
+      "ContinuewithEnterpriseSSO": "Continue with Enterprise SSO"
+
+    }
+}

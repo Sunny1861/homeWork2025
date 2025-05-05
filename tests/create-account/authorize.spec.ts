@@ -1,13 +1,18 @@
 import { AuthorizePage } from '../../model/create-account/authorizePage.ts'
 import { test, expect } from '@playwright/test'
-import { delay } from '../../utils/wait.ts'
+import { wait } from '../../utils/wait.ts'
 import { TestTag } from '../../const/TestTags.ts';
-import { getVerificationCode } from '../../utils/receiveEmail.ts'
+import { MailOperation } from '../../utils/receiveEmail.ts'
 import config from '../../playwright.config.ts';
 
 
 test.describe('authorize page test', async () => {
   test('authorize page with Email test', { tag: [TestTag.test_positive, TestTag.testLevel_sanity] }, async ({ page }) => {
+    // Set timeout to 120 seconds, wait the mail validation code will take much time
+    test.setTimeout(120000);
+    const mailOperate = new MailOperation();
+    await mailOperate.emptyInbox();
+
     await page.goto(config.baseUrl);
     const authorizeP = new AuthorizePage(page);
 
@@ -15,10 +20,7 @@ test.describe('authorize page test', async () => {
     await authorizeP.emailAddress.fill("user-564f2e71-fba7-4364-874d-dd4a543d8271@mailslurp.biz");
     await authorizeP.continuewithEmail.click();
 
-    // Wait 8 seconds to sure the mail server received the verify code mail
-    // TODO: Improve the wait logical here to sure input verify code once mail received it
-    await delay(1000 * 8);
-    const verifyCode = await getVerificationCode();
+    const verifyCode = await mailOperate.getVerificationCode();
     const inputs = await authorizeP.verifyCodeInput;
 
     for (let i = 0; i < verifyCode.length; i++) {
@@ -26,7 +28,7 @@ test.describe('authorize page test', async () => {
     }
 
     await authorizeP.dashboardLink.waitFor()
-    await expect(authorizeP.dashboardLink).toHaveText('Dashboard');
+    await expect(authorizeP.dashboardLink).toHaveText(authorizeP.resourceObject.Dashboard.Dashboard);
   });
 
   test('authorize page with invalid Email address test', { tag: TestTag.test_negative }, async ({ page }) => {
@@ -39,10 +41,6 @@ test.describe('authorize page test', async () => {
 
     await expect(authorizeP.emailAddress).toBeFocused();
   });
-
-  // test('authorize page with github test', async ({ page }) => {
-  //   // ...
-  // });
 
 });
 

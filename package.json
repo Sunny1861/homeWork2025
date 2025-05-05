@@ -6,6 +6,7 @@
     "author": "sunmeixia2005@163.com",
     "license": "TBD",
     "test": "npx playwright test",
+    "test-debug": "npx playwright test --grep \"Dashboard test\"",
     "report": "npx playwright show-report"
   },
   "devDependencies": {
