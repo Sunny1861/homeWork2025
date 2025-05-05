@@ -23,27 +23,67 @@ const defaultConfig: PlaywrightTestConfig = {
     baseURL: 'https://app.insomnia.rest',
   },
   projects: [
+    // Setup project
+    {
+      name: 'setup', 
+      testMatch: /.*\.setup\.ts/
+    },
+
+    {
+      name: 'authorize', 
+      testMatch: '**/authorize.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+      }
+    },
+
     /* Test against desktop browsers */
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      testIgnore: '**/authorize.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      testIgnore: '**/authorize.spec.ts',
+      use: { ...devices['Desktop Firefox'],
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      testIgnore: '**/authorize.spec.ts',
+      use: { ...devices['Desktop Safari'],
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
     /* Test against branded browsers. */
     {
       name: 'GoogleChrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' }, // or 'chrome-beta'
+      testIgnore: '**/authorize.spec.ts',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome',
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'MicrosoftEdge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' }, // or 'msedge-dev'
+      testIgnore: '**/authorize.spec.ts',
+      use: { ...devices['Desktop Edge'], channel: 'msedge' ,
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
     /* Test against mobile viewports. */
     {

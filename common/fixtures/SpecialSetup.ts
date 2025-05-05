@@ -1,22 +1,22 @@
 import type { Page } from '@playwright/test';
 
 
-export interface ISignInSetup {
-  signIn(): Promise<void>;
-  logOut(): Promise<void>;
+export interface ISpecialSetup {
+  prepareOne(): Promise<void>;
+  prepareTwo(): Promise<void>;
 }
 
-export class SignInSetup implements ISignInSetup {
+export class SpecialSetup implements ISpecialSetup {
   private newAccountPage: Page;
 
   constructor(public readonly page: Page) {
     this.newAccountPage = this.page;
   }
 
-  async signIn() {
+  async prepareOne() {
     // TODO: create new account and check the Dashboard page show
   }
-  async logOut() {
+  async prepareTwo() {
     // TODO: logout the account after test done
   }
 }

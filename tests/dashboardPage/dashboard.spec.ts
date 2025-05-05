@@ -1,14 +1,13 @@
-import {signInTest} from '../../common/fixtures/SignInFixture'
+import {SpecialTest} from '../../common/fixtures/SpecialFixture'
 import {expect} from '@playwright/test'
 import {TestTag} from '../../const/TestTags'
 import { DashBoardPage } from '../../model/dashboard/dashboardPage'
 
-signInTest.describe('Dashboard test', async ()=> {
-    signInTest('Dashboard test', {tag:[TestTag.testLevel_sanity]}, async({signInSetup, page }) =>{
+SpecialTest.describe('Dashboard test', async ()=> {
+    SpecialTest('Dashboard test', {tag:[TestTag.testLevel_sanity]}, async({specialSetup, page }) =>{
         const dashBoardPage = new DashBoardPage(page);
         
-        // Fixture do a fake logon, so here just check the welcome text in stead of Dashboard
-        await expect(dashBoardPage.dashboardLinkFake).toContainText(dashBoardPage.resourceObject.authorize.WelcometoInsomnia);
+        await expect(dashBoardPage.dashboardLink).toContainText(dashBoardPage.resourceObject.Dashboard.Dashboard);
     });
 })
 
